@@ -8,8 +8,23 @@ import os.path as osp
 import shutil
 init()
 
+def ALL_FILES(thispath):
+    print(Fore.LIGHTMAGENTA_EX)
+    print(thispath + os.getcwd())
+    print(Fore.LIGHTCYAN_EX)
+    files = os.listdir()
+    num = len(files)
+    for file in range(num):
+        if osp.isdir(files[file]) == True:
+            print(files[file])
+    print('')
+    for file in range(num):
+        if osp.isfile(files[file]) == True:
+            print(files[file])
 
-def All_DIR():
+def All_DIR(thispath):
+    print(Fore.LIGHTMAGENTA_EX)
+    print(thispath + os.getcwd())
     print(Fore.LIGHTCYAN_EX)
     files = os.listdir()
     num = len(files)
@@ -18,7 +33,9 @@ def All_DIR():
             print(files[file])
 
 
-def ALL_FILE():
+def ALL_FILE(thispath):
+    print(Fore.LIGHTMAGENTA_EX)
+    print(thispath + os.getcwd())
     print(Fore.LIGHTCYAN_EX)
     files = os.listdir()
     num = len(files)
@@ -34,7 +51,7 @@ def walking(walkChoose, dirNAME):
         os.chdir('..')
         path = os.getcwdb()
     elif walk == 2:
-        All_DIR()
+        All_DIR(thispath)
         print(Fore.LIGHTMAGENTA_EX)
         directory = input(dirNAME)
         os.chdir(directory)
@@ -45,7 +62,7 @@ start = True
 
 print(Fore.LIGHTYELLOW_EX)
 lang = int(input(
-    'Welcome to File-Manager.\nVersion 0.1.0\nChoose language:\n1)English\n2)Russian Language\n'))
+    'Welcome to File-Manager.\nVersion 0.2.0\nChoose language:\n1)English\n2)Russian Language\n'))
 
 if lang == 1:
     func = '1) Browse directory \n2) Move to another directory \n3) Copy file \n4) Move file \n5) Delete file \n6) Close \n'
@@ -59,6 +76,8 @@ if lang == 1:
     dirNAME = 'Enter directory name: '
     copyOK = 'Copying was successful'
     moveOK = 'The move went well'
+    delOK = 'Removal was successful'
+    thispath = 'You are on this path: '
 elif lang == 2:
     func = '1)Просмотр директории\n2)Перемещение в другую директорию\n3)Копирование файла\n4)Перемещение файла\n5)Удаление файла\n6)Закрыть\n'
     view = '1)Показать все файлы\n2)Показать только директории\n3)Показать только файлы\n'
@@ -71,6 +90,8 @@ elif lang == 2:
     dirNAME = 'Введите название директории: '
     copyOK = 'Копирование прошло удачно'
     moveOK = 'Перемещение прошло удачно'
+    delOK = 'Удаление прошло удачно'
+    thispath = 'Вы находитесь по данному пути: '
 else:
     print(Fore.LIGHTRED_EX)
     print('ERROR')
@@ -84,19 +105,18 @@ while start == True:
     if function == 1:
         view_filters = int(input(view))
         if view_filters == 1:
-            All_DIR()
-            ALL_FILE()
+            ALL_FILES(thispath)
         elif view_filters == 2:
-            All_DIR()
+            All_DIR(thispath)
         elif view_filters == 3:
-            ALL_FILE()
+            ALL_FILE(thispath)
         else:
             print(Fore.LIGHTRED_EX)
             print('ERROR')
     elif function == 2:
         walking(walkChoose, dirNAME)
     elif function == 3:
-        ALL_FILE()
+        ALL_FILE(thispath)
         replace = 'n'
         replace_file = input(replacer)
         replace_path = osp.abspath(replace_file)
@@ -108,7 +128,7 @@ while start == True:
         print(Fore.LIGHTMAGENTA_EX)
         print(copyOK)
     elif function == 4:
-        ALL_FILE()
+        ALL_FILE(thispath)
         replace = 'n'
         replace_file = input(replacers)
         replace_path = osp.abspath(replace_file)
@@ -117,9 +137,10 @@ while start == True:
             replace = input(dirYN)
         temp_path = os.getcwd()
         shutil.move(replace_path, temp_path)
+        print(Fore.LIGHTMAGENTA_EX)
         print(moveOK)
     elif function == 5:
-        ALL_FILE()
+        ALL_FILE(thispath)
         print(Fore.LIGHTGREEN_EX)
         del_file = input(delF)
         print(Fore.LIGHTCYAN_EX)
@@ -128,6 +149,8 @@ while start == True:
             os.remove(del_file)
         elif del_filters == 2:
             send2trash(del_file)
+        print(Fore.LIGHTMAGENTA_EX)
+        print(delOK)
     elif function == 6:
         start = False
     else:
