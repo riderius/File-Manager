@@ -23,9 +23,9 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 
 ## Commands you can execute on files
 
- 1. Viewing the contents of folders
- 2. Delete files
- 3. Send files
- 4. Expand folders
- 5. Move files
- 6. Copy files
+1. Viewing the contents of directories
+2. Switching between directories
+3. Copying
+4. Moving
+5. Renaming
+6. Removing

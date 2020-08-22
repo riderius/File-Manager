@@ -1,158 +1,307 @@
 # Coding: utf-8
-# python 3.8.3
+# python 3.8
 
 from colorama import init, Fore, Back, Style
 from send2trash import send2trash
 import os
-import os.path as osp
+import os.path
 import shutil
 init()
 
-def ALL_FILES(thispath):
-    print(Fore.LIGHTMAGENTA_EX)
-    print(thispath + os.getcwd())
-    print(Fore.LIGHTCYAN_EX)
+# This function lists all files and directories.
+
+
+def All_info(thispath):
+    Fpath = os.getcwd()
     files = os.listdir()
-    num = len(files)
-    for file in range(num):
-        if osp.isdir(files[file]) == True:
+    print(Fore.LIGHTMAGENTA_EX)
+    print(f'{thispath} {Fpath}')
+    i = len(files)
+    for file in range(i):
+        if os.path.isdir(files[file]) == True:
             print(files[file])
     print('')
-    for file in range(num):
-        if osp.isfile(files[file]) == True:
+    for file in range(i):
+        if os.path.isfile(files[file]) == True:
             print(files[file])
 
-def All_DIR(thispath):
-    print(Fore.LIGHTMAGENTA_EX)
-    print(thispath + os.getcwd())
-    print(Fore.LIGHTCYAN_EX)
+# This function lists all directories.
+
+
+def All_dir(thispath):
+    Fpath = os.getcwd()
     files = os.listdir()
-    num = len(files)
-    for file in range(num):
-        if osp.isdir(files[file]) == True:
-            print(files[file])
-
-
-def ALL_FILE(thispath):
     print(Fore.LIGHTMAGENTA_EX)
-    print(thispath + os.getcwd())
-    print(Fore.LIGHTCYAN_EX)
-    files = os.listdir()
-    num = len(files)
-    for file in range(num):
-        if osp.isfile(files[file]) == True:
+    print(f'{thispath} {Fpath}')
+    i = len(files)
+    for file in range(i):
+        if os.path.isdir(files[file]) == True:
             print(files[file])
 
+# This function lists all files.
 
-def walking(walkChoose, dirNAME):
-    print(Fore.LIGHTGREEN_EX)
-    walk = int(input(walkChoose))
-    if walk == 1:
+
+def All_files(thispath):
+    Fpath = os.getcwd()
+    files = os.listdir()
+    print(Fore.LIGHTMAGENTA_EX)
+    print(f'{thispath} {Fpath}')
+    i = len(files)
+    for file in range(i):
+        if os.path.isfile(files[file]) == True:
+            print(files[file])
+
+# This function allows switching between directories.
+
+
+def Jump(thispath, Jump_func_text, Directory_text):
+    print(Fore.LIGHTYELLOW_EX)
+    Jump_func = int(input(Jump_func_text))
+    if Jump_func == 1:
         os.chdir('..')
-        path = os.getcwdb()
-    elif walk == 2:
-        All_DIR(thispath)
+        Fpath = os.getcwd()
         print(Fore.LIGHTMAGENTA_EX)
-        directory = input(dirNAME)
-        os.chdir(directory)
-        path = os.getcwdb()
+        print(f'{thispath} {Fpath}')
+    if Jump_func == 2:
+        All_dir(thispath)
+        print(Fore.LIGHTGREEN_EX)
+        Directory = input(Directory_text)
+        os.chdir(Directory)
+        Fpath = os.getcwd()
+        print(Fore.LIGHTMAGENTA_EX)
+        print(f'{thispath} {Fpath}')
 
+# Language selection.
+
+
+print(Fore.LIGHTYELLOW_EX)
+lang = int(input('Choose Language:\n1)English\n2)Russian Language\n'))
+
+# English
+
+if lang == 1:
+    from Lang_en import *
+
+# Russian language
+
+elif lang == 2:
+    from Lang_ru import *
+
+# Error notification
+
+else:
+    print(Fore.LIGHTRED_EX)
+    print('Error: This language does not exist.')
 
 start = True
 
-print(Fore.LIGHTYELLOW_EX)
-lang = int(input(
-    'Welcome to File-Manager.\nVersion 0.2.0\nChoose language:\n1)English\n2)Russian Language\n'))
-
-if lang == 1:
-    func = '1) Browse directory \n2) Move to another directory \n3) Copy file \n4) Move file \n5) Delete file \n6) Close \n'
-    view = '1) Show all files \n2) Show only directories \n3) Show only files \n'
-    replacer = 'Which file to copy: '
-    replacers = 'Which file to transfer: '
-    dirYN = 'Do you want to transfer the file to this directory? (Y / n)'
-    delF = 'Which file to delete: '
-    delfilt = '1) Delete file permanently \n2) Send file to trash \n'
-    walkChoose = '1) Move to previous directory \n2) Move to next directory \n'
-    dirNAME = 'Enter directory name: '
-    copyOK = 'Copying was successful'
-    moveOK = 'The move went well'
-    delOK = 'Removal was successful'
-    thispath = 'You are on this path: '
-elif lang == 2:
-    func = '1)Просмотр директории\n2)Перемещение в другую директорию\n3)Копирование файла\n4)Перемещение файла\n5)Удаление файла\n6)Закрыть\n'
-    view = '1)Показать все файлы\n2)Показать только директории\n3)Показать только файлы\n'
-    replacer = 'Какой файл нужно скопировать: '
-    replacers = 'Какой файл нужно перенести: '
-    dirYN = 'В эту директорию надо перенести файл?(y/n) '
-    delF = 'Какой файл удалить: '
-    delfilt = '1)Файл удалить навсегда\n2)Файл отправить в корзину\n'
-    walkChoose = '1)Перемещение в предыдущую директорию\n2)Перемещение в следующую директорию\n'
-    dirNAME = 'Введите название директории: '
-    copyOK = 'Копирование прошло удачно'
-    moveOK = 'Перемещение прошло удачно'
-    delOK = 'Удаление прошло удачно'
-    thispath = 'Вы находитесь по данному пути: '
-else:
-    print(Fore.LIGHTRED_EX)
-    print('ERROR')
-
-path = os.getcwdb()
-
 while start == True:
-
     print(Fore.LIGHTGREEN_EX)
-    function = int(input(func))
-    if function == 1:
-        view_filters = int(input(view))
-        if view_filters == 1:
-            ALL_FILES(thispath)
-        elif view_filters == 2:
-            All_DIR(thispath)
-        elif view_filters == 3:
-            ALL_FILE(thispath)
+    function = int(input(function_text))
+
+    try:
+        # The part that is responsible for outputting information about what files and directories are in this directory.
+
+        if function == 1:
+            All_info(thispath)
+
+        # This part is responsible for switching between directories.
+
+        elif function == 2:
+            Jump(thispath, Jump_func_text, Directory_text)
+
+        # The part that is responsible for copying.
+            # Selecting a function in copying.
+
+        elif function == 3:
+            print(Fore.LIGHTYELLOW_EX)
+            Copy_func = int(input(Copy_func_text))
+
+            # The part that is responsible for copying files.
+
+            if Copy_func == 1:
+                All_files(thispath)
+                print(Fore.LIGHTCYAN_EX)
+                file = input(file_text)
+                path = os.getcwd()
+                CaMO = 'n'
+                while CaMO == 'n':
+                    Jump(thispath, Jump_func_text, Directory_text)
+                    print(Fore.LIGHTGREEN_EX)
+                    CaMO = input(CaMO_text)
+                    CaMO = CaMO.lower()
+                    path_to = os.getcwd()
+                shutil.copy(f'{path}\\{file}', f'{path_to}\\{file}')
+
+            # The part that is responsible for copying directories.
+
+            elif Copy_func == 2:
+                All_dir(thispath)
+                print(Fore.LIGHTCYAN_EX)
+                file = input(Directory_text)
+                path = os.getcwd()
+                CaMO = 'n'
+                while CaMO == 'n':
+                    Jump(thispath, Jump_func_text, Directory_text)
+                    print(Fore.LIGHTGREEN_EX)
+                    CaMO = input(CaMO_text)
+                    CaMO = CaMO.lower()
+                    path_to = os.getcwd()
+                shutil.copytree(f'{path}\\{file}', f'{path_to}\\{file}')
+
+            # Error notification.
+
+            else:
+                print(Fore.LIGHTRED_EX)
+                print('Error: This function is missing.')
+
+        # This part is responsible for moving files and directories.
+            # Selecting a function in moving.
+
+        elif function == 4:
+            print(Fore.LIGHTYELLOW_EX)
+            Move_func = int(input(Move_func_text))
+
+            # This part is responsible for moving files.
+
+            if Move_func == 1:
+                All_files(thispath)
+                print(Fore.LIGHTCYAN_EX)
+                file = input(file_text)
+                path = os.getcwd()
+                CaMO = 'n'
+                while CaMO == 'n':
+                    Jump(thispath, Jump_func_text, Directory_text)
+                    print(Fore.LIGHTGREEN_EX)
+                    CaMO = input(CaMO_text2)
+                    CaMO = CaMO.lower()
+                    path_to = os.getcwd()
+                shutil.move(f'{path}\\{file}', f'{path_to}\\{file}')
+
+            # This part is responsible for moving directories.
+
+            elif Move_func == 2:
+                All_dir(thispath)
+                print(Fore.LIGHTCYAN_EX)
+                file = input(Directory_text)
+                path = os.getcwd()
+                CaMO = 'n'
+                while CaMO == 'n':
+                    Jump(thispath, Jump_func_text, Directory_text)
+                    print(Fore.LIGHTGREEN_EX)
+                    CaMO = input(CaMO_text2)
+                    CaMO = CaMO.lower()
+                    path_to = os.getcwd()
+                shutil.move(f'{path}\\{file}', f'{path_to}\\{file}')
+
+            # Error notification.
+
+            else:
+                print(Fore.LIGHTRED_EX)
+                print('Error: This function is missing.')
+
+        # This part is responsible for renaming.
+
+        elif function == 5:
+            path = os.getcwd()
+            All_files(thispath)
+            print(Fore.LIGHTCYAN_EX)
+            file = input(file_text)
+            name = input(name_text)
+            shutil.move(f'{path}\\{file}', f'{path}\\{name}')
+
+        # This part is responsible for removing files and directories.
+
+        elif function == 6:
+
+            # Function selection: Delete file or delete directory.
+
+            print(Fore.LIGHTYELLOW_EX)
+            Remove_func = int(input(Remove_func_text))
+
+            # Deleting a file.
+
+            if Remove_func == 1:
+
+                # Function selection: Delete the file permanently or send it to the trash.
+                # REmoving FIle
+
+                print(Fore.LIGHTGREEN_EX)
+                REFI_func = int(input(REFI_func_text))
+
+                # Deleting the file permanently.
+
+                if REFI_func == 1:
+                    path = os.getcwd()
+                    All_files(thispath)
+                    print(Fore.LIGHTCYAN_EX)
+                    file = input(file_text)
+                    os.remove(f'{path}\\{file}')
+
+                # Sending a file to the trash.
+
+                elif REFI_func == 2:
+                    path = os.getcwd()
+                    All_files(thispath)
+                    print(Fore.LIGHTYELLOW_EX)
+                    file = input(file_text)
+                    send2trash(f'{path}\\{file}')
+
+                # Error notification.
+
+                else:
+                    print(Fore.LIGHTRED_EX)
+                    print('Error: This function is missing.')
+
+            # Removing directories.
+
+            elif Remove_func == 2:
+
+                # Function selection: Delete the directory permanently or send it to the trash.
+                # REDIR - REmove DIRectory
+
+                print(Fore.LIGHTGREEN_EX)
+                REDIR_func = int(input(REDIR_func_text))
+
+                # Removing the directory permanently.
+
+                if REDIR_func == 1:
+                    path = os.getcwd()
+                    All_files(thispath)
+                    print(Fore.LIGHTCYAN_EX)
+                    file = input(Directory_text)
+                    shutil.rmtre(f'{path}\\{file}')
+
+                # Sending directory to trash.
+
+                elif REDIR_func == 2:
+                    path = os.getcwd()
+                    All_files(thispath)
+                    print(Fore.LIGHTCYAN_EX)
+                    file = input(Directory_text)
+                    send2trash(f'{path}\\{file}')
+
+                # Error notification.
+
+                else:
+                    print(Fore.LIGHTRED_EX)
+                    print('Error: This function is missing.')
+
+        # The part responsible for closing the program.
+
+        elif function == 7:
+            print(Fore.RESET)
+            start = False
+
+        # Error notification.
+
         else:
             print(Fore.LIGHTRED_EX)
-            print('ERROR')
-    elif function == 2:
-        walking(walkChoose, dirNAME)
-    elif function == 3:
-        ALL_FILE(thispath)
-        replace = 'n'
-        replace_file = input(replacer)
-        replace_path = osp.abspath(replace_file)
-        while replace == 'n':
-            walking(walkChoose, dirNAME)
-            replace = input(dirYN)
-        temp_path = os.getcwd()
-        shutil.copy(replace_path, temp_path)
-        print(Fore.LIGHTMAGENTA_EX)
-        print(copyOK)
-    elif function == 4:
-        ALL_FILE(thispath)
-        replace = 'n'
-        replace_file = input(replacers)
-        replace_path = osp.abspath(replace_file)
-        while replace == 'n':
-            walking(walkChoose, dirNAME)
-            replace = input(dirYN)
-        temp_path = os.getcwd()
-        shutil.move(replace_path, temp_path)
-        print(Fore.LIGHTMAGENTA_EX)
-        print(moveOK)
-    elif function == 5:
-        ALL_FILE(thispath)
-        print(Fore.LIGHTGREEN_EX)
-        del_file = input(delF)
-        print(Fore.LIGHTCYAN_EX)
-        del_filters = int(input(delfilt))
-        if del_filters == 1:
-            os.remove(del_file)
-        elif del_filters == 2:
-            send2trash(del_file)
-        print(Fore.LIGHTMAGENTA_EX)
-        print(delOK)
-    elif function == 6:
-        start = False
-    else:
+            print('Error: This function is missing.')
+
+    except FileNotFoundError:
+        print(Fore.LIGHTRED_EX)
+        print('Error: The file or directory does not exist.')
+    except:
         print(Fore.LIGHTRED_EX)
         print('ERROR')
