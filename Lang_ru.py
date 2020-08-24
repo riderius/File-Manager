@@ -1,4 +1,4 @@
-#Localization file with Russian language.
+# Localization file with Russian language.
 
 thispath = 'Вы находитесь по этому пути:'
 Jump_func_text = '1)Переход в предыдущую директорию\n2)Переход в следующую директорию\n'

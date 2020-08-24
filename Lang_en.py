@@ -1,4 +1,4 @@
-#Localization file with English.
+# Localization file with English.
 
 thispath = 'You are on this path:'
 Jump_func_text = '1) Move to previous directory \n2) Move to next directory \n'
