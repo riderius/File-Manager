@@ -29,3 +29,5 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 4. Moving
 5. Renaming
 6. Removing
+7. Reading a file
+8. File overwrite
