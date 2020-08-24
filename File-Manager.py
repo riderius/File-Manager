@@ -287,9 +287,38 @@ while start == True:
                     print(Fore.LIGHTRED_EX)
                     print('Error: This function is missing.')
 
-        # The part responsible for closing the program.
+        # This part is responsible for reading files.
 
         elif function == 7:
+            All_files(thispath)
+            print(Fore.LIGHTCYAN_EX)
+            file = input(file_text)
+            FO = open(file, 'r')
+            print(Fore.RESET)
+            for line in FO:
+                print(line)
+            FO.close()
+
+        # This is the part that is responsible for overwriting files.
+
+        elif function == 8:
+            All_files(thispath)
+            file = input(file_text)
+            FO = open(file, 'w')
+            FW = 'y'
+            while FW == 'y':
+                print(Fore.LIGHTCYAN_EX + FO_txt_text)
+                print(Fore.RESET)
+                FO_txt = input('')
+                FO.write(FO_txt + '\n')
+                print(Fore.LIGHTGREEN_EX)
+                FW = input(FW_text)
+                FW = FW.lower()
+            FO.close()
+
+        # The part responsible for closing the program.
+
+        elif function == 9:
             print(Fore.RESET)
             start = False
 
