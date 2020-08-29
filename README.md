@@ -13,6 +13,7 @@ Hi! **File-Manager** is a Windows file manager based on Python 3.8 This was made
 3. os
 4. os.path
 5. shutil
+6. PIL
 
 Python 3.8 or higher is recommended for using this program. You need to install the send2trash and colorama modules. You can do this with the following command:
 
@@ -31,3 +32,4 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 6. Removing
 7. Reading a file
 8. File overwrite
+9. Opening an image

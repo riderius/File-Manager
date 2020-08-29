@@ -3,7 +3,7 @@
 thispath = 'You are on this path:'
 Jump_func_text = '1) Move to previous directory \n2) Move to next directory \n'
 Directory_text = 'Enter directory name: '
-function_text = 'File-Manager made by RIDERIUS \nVersion 0.4.0 \n1) View all files \n2) Move between directories \n3) Copy \n4) Move \n5) Change \n6) Delete \n7) Reading a file \n8) File overwrite \n9) Close \n'
+function_text = 'File-Manager made by RIDERIUS \nVersion 0.5.0 \n1) View all files \n2) Move between directories \n3) Copy \n4) Move \n5) Change \n6) Delete \n7) Reading a file \n8) File overwrite \n9) Opening an image \n10) Close \n'
 Copy_func_text = '1) Copy files \n2) Copy directory \n'
 file_text = 'Enter file name: '
 CaMO = 'Copy to this directory? (y/n) '

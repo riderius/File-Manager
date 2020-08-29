@@ -3,6 +3,7 @@
 
 from colorama import init, Fore, Back, Style
 from send2trash import send2trash
+from PIL import Image
 import os
 import os.path
 import shutil
@@ -316,9 +317,17 @@ while start == True:
                 FW = FW.lower()
             FO.close()
 
-        # The part responsible for closing the program.
+        # This part is responsible for opening the image.
 
         elif function == 9:
+            All_files(thispath)
+            file = input(file_text)
+            img = Image.open(file)
+            img.show()
+
+        # The part responsible for closing the program.
+
+        elif function == 10:
             print(Fore.RESET)
             start = False
 
