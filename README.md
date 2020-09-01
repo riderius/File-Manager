@@ -33,3 +33,11 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 7. Reading a file
 8. File overwrite
 9. Opening an image
+
+## Versioning
+
+`File-Manager` uses [Semantic Versioning](https://semver.org/).
+
+## License
+
+This project is licensed under the MIT License, see the [LICENSE](https://github.com/RIDERIUS/File-Manager/blob/master/LICENSE) file for details.
