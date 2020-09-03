@@ -41,7 +41,7 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 
 ## Versioning
 
-*File-Manager* uses [Semantic Versioning](https://semver.org/).
+**File-Manager** uses [Semantic Versioning](https://semver.org/).
 
 ## License
 
