@@ -4,7 +4,7 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-Hi! **File-Manager** is a Windows file manager based on Python 3.8 This was made by RIDERIUS as a personal project. With this Python manager, you can browse directories and execute commands. Such as moving, copying, renaming or deleting files.
+Hi! **File-Manager** is a Windows file manager based on Python 3.8 This was made by [RIDERIUS](https://github.com/RIDERIUS/) as a personal project. With this Python manager, you can browse directories and execute commands. Such as moving, copying, renaming or deleting files.
 
 ## Modules Used:
 
@@ -34,9 +34,14 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 8. File overwrite
 9. Opening an image
 
+## Features that may be added in the future
+
+1. Ability to add your favorite folders in Quick Access.
+2. The transition from colorama to huepy.
+
 ## Versioning
 
-`File-Manager` uses [Semantic Versioning](https://semver.org/).
+*File-Manager* uses [Semantic Versioning](https://semver.org/).
 
 ## License
 
