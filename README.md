@@ -37,7 +37,6 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 ## Features that may be added in the future
 
 - [ ] Ability to add your favorite folders in Quick Access.
-- [ ] The transition from colorama to huepy.
 
 ## Versioning
 
