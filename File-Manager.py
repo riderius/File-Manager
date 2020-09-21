@@ -271,7 +271,7 @@ while start == True:
                     All_files(thispath)
                     print(Fore.LIGHTCYAN_EX)
                     file = input(Directory_text)
-                    shutil.rmtre(f'{path}\\{file}')
+                    shutil.rmtree(f'{path}\\{file}')
 
                 # Sending directory to trash.
 
@@ -324,6 +324,7 @@ while start == True:
             file = input(file_text)
             img = Image.open(file)
             img.show()
+            input(Enter)
 
         # The part responsible for closing the program.
 
