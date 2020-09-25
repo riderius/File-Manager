@@ -13,7 +13,7 @@ Hi! **File-Manager** is a Windows file manager based on Python 3.8 This was made
 3. os
 4. os.path
 5. shutil
-6. PIL
+6. pillow
 
 Python 3.8 or higher is recommended for using this program. You need to install the send2trash and colorama modules. You can do this with the following command:
 
@@ -21,6 +21,7 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 
 **send2trash** is a python module that sends files/folders to Recycle Bin instead of permanently deleting it.
 **colorama** is a python module that produces colored terminal text.
+**Pillow** is the friendly PIL fork by Alex Clark and Contributors. **PIL** is the Python Imaging Library by Fredrik Lundh and Contributors.
 
 ## Commands you can execute on files
 
