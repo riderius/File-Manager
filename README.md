@@ -45,4 +45,4 @@ Python 3.8 or higher is recommended for using this program. You need to install 
 
 ## License
 
-This project is licensed under the MIT License, see the [LICENSE](https://github.com/RIDERIUS/File-Manager/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License, see the [LICENSE](https://github.com/RIDERIUS/File-Manager/blob/main/LICENSE) file for details.
